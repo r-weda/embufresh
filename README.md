@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+EmbuFresh Online Grocery Store
+Student Information
 
-## Project info
+Name: Weda Robert
 
-**URL**: https://lovable.dev/projects/eedca52c-5b2a-417e-a830-f0200ad250d6
+Course: Information Technology
 
-## How can I edit this code?
+Registration Number: B141/27520/2023
 
-There are several ways of editing your application.
+University: University of Embu
 
-**Use Lovable**
+Date of Submission: September 2025
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/eedca52c-5b2a-417e-a830-f0200ad250d6) and start prompting.
+Assignment Title
 
-Changes made via Lovable will be committed automatically to this repo.
+Development of an E-commerce Website (EmbuFresh)
 
-**Use your preferred IDE**
+Project Description
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+EmbuFresh is an online grocery store designed to serve the residents of Embu County. The platform allows users to browse, select, and purchase groceries conveniently from their devices. It provides a user-friendly interface, organized product categories, and an efficient checkout system.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The live project can be accessed here:
+👉 https://embufresh.lovable.app/
 
-Follow these steps:
+Objectives of the Project
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+To develop a functional e-commerce website for grocery shopping.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+To integrate a clean and responsive user interface for easy navigation.
 
-# Step 3: Install the necessary dependencies.
-npm i
+To demonstrate the use of modern web technologies in building real-world applications.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+To provide a convenient shopping platform for Embu residents.
 
-**Edit a file directly in GitHub**
+Technologies Used
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project was built using the following tools and frameworks:
 
-**Use GitHub Codespaces**
+Vite – fast build tool and development server.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+React – for building interactive user interfaces.
 
-## What technologies are used for this project?
+TypeScript – ensures type safety in the project.
 
-This project is built with:
+Tailwind CSS – for responsive and modern styling.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+shadcn-ui – for prebuilt UI components.
 
-## How can I deploy this project?
+Supabase – for database and backend services.
 
-Simply open [Lovable](https://lovable.dev/projects/eedca52c-5b2a-417e-a830-f0200ad250d6) and click on Share -> Publish.
+Features of EmbuFresh
 
-## Can I connect a custom domain to my Lovable project?
+🛒 Online grocery shopping.
 
-Yes, you can!
+📂 Organized product categories.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🔍 Search and navigation system.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+💳 Shopping cart and checkout.
+
+📱 Responsive design for all devices.
+
+How to Access the Project
+
+Open the link in any browser: https://embufresh.lovable.app/
+
+Navigate through the homepage and product categories.
+
+Add products to the shopping cart.
+
+Proceed to checkout.
+
+Conclusion
+
+This project demonstrates the development of an online e-commerce platform using modern web technologies. It showcases the application of skills in web development, UI/UX design, and database integration to solve real-world challenges in local commerce.
+
+✅ Assignment Completed by: Weda Robert
