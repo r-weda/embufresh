@@ -1,0 +1,110 @@
+import { useState } from "react";
+import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  return (
+    <header className="sticky top-0 z-50 bg-background border-b border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center">
+            <h1 className="text-2xl font-bold text-primary">EmbuFresh</h1>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
+            <a href="/" className="text-foreground hover:text-primary transition-colors">Home</a>
+            <a href="/categories" className="text-foreground hover:text-primary transition-colors">Categories</a>
+            <a href="/offers" className="text-foreground hover:text-primary transition-colors">Special Offers</a>
+            <a href="/about" className="text-foreground hover:text-primary transition-colors">About</a>
+          </nav>
+
+          {/* Search Bar - Desktop */}
+          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Search for fresh groceries..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-4"
+              />
+            </div>
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center space-x-3">
+            <Button variant="ghost" size="icon">
+              <User className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="absolute -top-2 -right-2 bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                0
+              </span>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
+
+        {/* Mobile Search */}
+        <div className="lg:hidden pb-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search for fresh groceries..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 pr-4"
+            />
+          </div>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-border">
+            <nav className="flex flex-col space-y-4">
+              <a href="/" className="text-foreground hover:text-primary transition-colors">Home</a>
+              <a href="/categories" className="text-foreground hover:text-primary transition-colors">Categories</a>
+              <a href="/offers" className="text-foreground hover:text-primary transition-colors">Special Offers</a>
+              <a href="/about" className="text-foreground hover:text-primary transition-colors">About</a>
+              <div className="flex items-center space-x-4 pt-4">
+                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  Account
+                </Button>
+                <Button variant="ghost" size="sm" className="flex items-center gap-2 relative">
+                  <ShoppingCart className="h-4 w-4" />
+                  Cart
+                  <span className="absolute -top-1 -right-1 bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                    0
+                  </span>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
