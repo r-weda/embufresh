@@ -51,14 +51,14 @@ const Footer = () => {
                 <Phone className="h-4 w-4 text-primary" />
                 <div>
                   <p className="text-sm font-medium">Customer Service</p>
-                  <p className="text-sm text-muted-foreground">+254 xxx xxx xxx</p>
+                  <a href="tel:0742756074" className="text-sm text-muted-foreground hover:text-primary transition-colors">0742756074</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary" />
                 <div>
                   <p className="text-sm font-medium">Email Support</p>
-                  <p className="text-sm text-muted-foreground">hello@embufresh.co.ke</p>
+                  <a href="mailto:robertweda993@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">robertweda993@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">

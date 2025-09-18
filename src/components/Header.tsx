@@ -27,6 +27,7 @@ const Header = () => {
             <Link to="/categories" className="text-foreground hover:text-primary transition-colors">Categories</Link>
             <Link to="/offers" className="text-foreground hover:text-primary transition-colors">Special Offers</Link>
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">About</Link>
+            <Link to="/contact" className="text-foreground hover:text-primary transition-colors">Contact</Link>
           </nav>
 
           {/* Search Bar - Desktop */}
@@ -89,6 +90,7 @@ const Header = () => {
               <Link to="/categories" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Categories</Link>
               <Link to="/offers" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Special Offers</Link>
               <Link to="/about" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>About</Link>
+              <Link to="/contact" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
               <div className="flex items-center space-x-4 pt-4">
                 <Button variant="ghost" size="sm" className="flex items-center gap-2">
                   <User className="h-4 w-4" />

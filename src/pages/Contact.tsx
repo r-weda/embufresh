@@ -8,8 +8,20 @@ import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted");
+    // Create a mailto link with the form data
+    const formData = new FormData(e.target as HTMLFormElement);
+    const subject = encodeURIComponent(formData.get('subject') as string || 'Contact from EmbuFresh website');
+    const body = encodeURIComponent(`
+Name: ${formData.get('firstName')} ${formData.get('lastName')}
+Email: ${formData.get('email')}
+Phone: ${formData.get('phone')}
+
+Message:
+${formData.get('message')}
+    `.trim());
+    
+    // Open email client with pre-filled information
+    window.location.href = `mailto:robertweda993@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -40,7 +52,7 @@ const Contact = () => {
                   Call Us
                 </h3>
                 <p className="text-muted-foreground">
-                  +254 xxx xxx xxx
+                  <a href="tel:0742756074" className="hover:text-primary transition-colors">0742756074</a>
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   Customer Service Line
@@ -57,7 +69,7 @@ const Contact = () => {
                   Email Us
                 </h3>
                 <p className="text-muted-foreground">
-                  hello@embufresh.co.ke
+                  <a href="mailto:robertweda993@gmail.com" className="hover:text-primary transition-colors">robertweda993@gmail.com</a>
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   24/7 Email Support
