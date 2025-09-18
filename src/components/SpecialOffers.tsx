@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -81,8 +82,8 @@ const SpecialOffers = () => {
         </div>
 
         <div className="text-center mt-8">
-          <Button variant="cta" size="lg">
-            View All Offers
+          <Button variant="cta" size="lg" asChild>
+            <Link to="/offers">View All Offers</Link>
           </Button>
         </div>
       </div>

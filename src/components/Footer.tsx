@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Footer = () => {
@@ -22,11 +23,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</a></li>
-              <li><a href="/categories" className="text-muted-foreground hover:text-primary transition-colors">Categories</a></li>
-              <li><a href="/offers" className="text-muted-foreground hover:text-primary transition-colors">Special Offers</a></li>
-              <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+              <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/categories" className="text-muted-foreground hover:text-primary transition-colors">Categories</Link></li>
+              <li><Link to="/offers" className="text-muted-foreground hover:text-primary transition-colors">Special Offers</Link></li>
+              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -34,11 +35,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Customer Support</h4>
             <ul className="space-y-2">
-              <li><a href="/help" className="text-muted-foreground hover:text-primary transition-colors">Help Center</a></li>
-              <li><a href="/delivery" className="text-muted-foreground hover:text-primary transition-colors">Delivery Info</a></li>
-              <li><a href="/returns" className="text-muted-foreground hover:text-primary transition-colors">Returns & Refunds</a></li>
-              <li><a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Help Center</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Delivery Info</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Returns & Refunds</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,15 +16,17 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">EmbuFresh</h1>
+            <Link to="/" className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
+              EmbuFresh
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-foreground hover:text-primary transition-colors">Home</a>
-            <a href="/categories" className="text-foreground hover:text-primary transition-colors">Categories</a>
-            <a href="/offers" className="text-foreground hover:text-primary transition-colors">Special Offers</a>
-            <a href="/about" className="text-foreground hover:text-primary transition-colors">About</a>
+            <Link to="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+            <Link to="/categories" className="text-foreground hover:text-primary transition-colors">Categories</Link>
+            <Link to="/offers" className="text-foreground hover:text-primary transition-colors">Special Offers</Link>
+            <Link to="/about" className="text-foreground hover:text-primary transition-colors">About</Link>
           </nav>
 
           {/* Search Bar - Desktop */}
@@ -82,10 +85,10 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              <a href="/" className="text-foreground hover:text-primary transition-colors">Home</a>
-              <a href="/categories" className="text-foreground hover:text-primary transition-colors">Categories</a>
-              <a href="/offers" className="text-foreground hover:text-primary transition-colors">Special Offers</a>
-              <a href="/about" className="text-foreground hover:text-primary transition-colors">About</a>
+              <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              <Link to="/categories" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Categories</Link>
+              <Link to="/offers" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Special Offers</Link>
+              <Link to="/about" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>About</Link>
               <div className="flex items-center space-x-4 pt-4">
                 <Button variant="ghost" size="sm" className="flex items-center gap-2">
                   <User className="h-4 w-4" />

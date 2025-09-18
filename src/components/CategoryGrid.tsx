@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import fruitsImage from "@/assets/category-fruits.jpg";
@@ -26,6 +27,7 @@ const categoryImages: { [key: string]: string } = {
 };
 
 const CategoryGrid = () => {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -50,8 +52,7 @@ const CategoryGrid = () => {
   };
 
   const handleCategoryClick = (slug: string) => {
-    // Navigate to category page
-    window.location.href = `/category/${slug}`;
+    navigate(`/category/${slug}`);
   };
 
   if (loading) {

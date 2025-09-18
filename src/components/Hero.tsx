@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-grocery.jpg";
 
@@ -17,11 +18,11 @@ const Hero = () => {
               Supporting local farmers and bringing quality directly to you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="cta" size="lg" className="text-lg px-8">
-                Start Shopping
+              <Button variant="cta" size="lg" className="text-lg px-8" asChild>
+                <Link to="/categories">Start Shopping</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                View Categories
+              <Button variant="outline" size="lg" className="text-lg px-8" asChild>
+                <Link to="/categories">View Categories</Link>
               </Button>
             </div>
             
