@@ -1,14 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Search, User, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Cart from "./Cart";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/categories?search=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">
@@ -32,7 +42,7 @@ const Header = () => {
 
           {/* Search Bar - Desktop */}
           <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
-            <div className="relative w-full">
+            <form onSubmit={handleSearch} className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="text"
@@ -41,7 +51,7 @@ const Header = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 pr-4"
               />
-            </div>
+            </form>
           </div>
 
           {/* Desktop Actions */}
@@ -49,12 +59,7 @@ const Header = () => {
             <Button variant="ghost" size="icon">
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-2 -right-2 bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
-            </Button>
+            <Cart />
           </div>
 
           {/* Mobile Menu Button */}
@@ -70,7 +75,7 @@ const Header = () => {
 
         {/* Mobile Search */}
         <div className="lg:hidden pb-4">
-          <div className="relative">
+          <form onSubmit={handleSearch} className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
@@ -79,7 +84,7 @@ const Header = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 pr-4"
             />
-          </div>
+          </form>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -96,13 +101,13 @@ const Header = () => {
                   <User className="h-4 w-4" />
                   Account
                 </Button>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2 relative">
-                  <ShoppingCart className="h-4 w-4" />
-                  Cart
-                  <span className="absolute -top-1 -right-1 bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs rounded-full h-4 w-4 flex items-center justify-center">
-                    0
-                  </span>
-                </Button>
+                <Cart 
+                  trigger={
+                    <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                      Cart
+                    </Button>
+                  }
+                />
               </div>
             </nav>
           </div>

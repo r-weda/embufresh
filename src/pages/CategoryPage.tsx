@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 import { ShoppingCart, Plus, Minus } from "lucide-react";
 
 interface Product {
@@ -21,10 +23,14 @@ interface Product {
 
 const CategoryPage = () => {
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get('search') || '';
   const [products, setProducts] = useState<Product[]>([]);
   const [categoryName, setCategoryName] = useState("");
   const [loading, setLoading] = useState(true);
   const [quantities, setQuantities] = useState<{[key: string]: number}>({});
+  const { addToCart } = useCart();
+  const { toast } = useToast();
 
   useEffect(() => {
     if (slug) {
@@ -71,10 +77,25 @@ const CategoryPage = () => {
     }));
   };
 
-  const addToCart = (product: Product) => {
+  const handleAddToCart = (product: Product) => {
+    if (product.stock_quantity <= 0) return;
+    
     const quantity = quantities[product.id] || 1;
-    console.log(`Adding ${quantity} ${product.unit} of ${product.name} to cart`);
-    // TODO: Implement cart functionality
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      unit: product.unit,
+      image_url: product.image_url,
+      stock_quantity: product.stock_quantity,
+      quantity
+    });
+
+    setQuantities(prev => ({ ...prev, [product.id]: 1 }));
+    toast({
+      title: "Added to cart",
+      description: `${quantity} ${product.unit} of ${product.name} added to your cart.`,
+    });
   };
 
   if (loading) {
@@ -218,7 +239,7 @@ const CategoryPage = () => {
                         <Button 
                           variant="cta" 
                           className="w-full"
-                          onClick={() => addToCart(product)}
+                          onClick={() => handleAddToCart(product)}
                         >
                           <ShoppingCart className="h-4 w-4 mr-2" />
                           Add to Cart
