@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Image } from "@/components/ui/image";
 import { useCart } from "@/contexts/CartContext";
 import { ShoppingCart, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -87,12 +88,16 @@ const FeaturedProducts = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {Array.from({ length: 8 }).map((_, index) => (
-              <Card key={index} className="overflow-hidden animate-pulse">
-                <CardContent className="p-4">
-                  <div className="bg-muted h-48 rounded-lg mb-3"></div>
-                  <div className="bg-muted h-4 rounded mb-2"></div>
-                  <div className="bg-muted h-3 rounded w-3/4 mb-2"></div>
-                  <div className="bg-muted h-6 rounded w-1/2"></div>
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-muted h-48 animate-pulse"></div>
+                  <div className="p-4 space-y-2">
+                    <div className="bg-muted h-3 rounded animate-pulse w-1/3"></div>
+                    <div className="bg-muted h-4 rounded animate-pulse"></div>
+                    <div className="bg-muted h-3 rounded animate-pulse w-3/4"></div>
+                    <div className="bg-muted h-6 rounded animate-pulse w-1/2 mt-3"></div>
+                    <div className="bg-muted h-10 rounded animate-pulse mt-3"></div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -122,10 +127,11 @@ const FeaturedProducts = () => {
             >
               <CardContent className="p-0">
                 <div className="relative">
-                  <img
-                    src={product.image_url}
+                  <Image
+                    src={product.image_url || "/placeholder.svg"}
                     alt={`${product.name} - Fresh ${product.name.toLowerCase()} available for delivery in Embu County`}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    skeletonClassName="w-full h-48 rounded-t-lg"
                     loading="lazy"
                   />
                   <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground">

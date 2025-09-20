@@ -4,9 +4,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Image } from "@/components/ui/image";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
-import { ShoppingCart, Plus, Minus } from "lucide-react";
+import { ShoppingCart, Plus, Minus, Star, Search } from "lucide-react";
 
 interface Product {
   id: string;
@@ -158,10 +159,11 @@ const CategoryPage = () => {
               {products.map((product) => (
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
                   <div className="relative">
-                    <img
+                    <Image
                       src={product.image_url || "/placeholder.svg"}
                       alt={`${product.name} - Fresh ${product.name.toLowerCase()} from Embu County`}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      skeletonClassName="w-full h-48 rounded-t-lg"
                       loading="lazy"
                     />
                     {product.is_featured && (

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { Image } from "@/components/ui/image";
 import { useToast } from "@/hooks/use-toast";
 import { ShoppingCart, MapPin, CreditCard, Phone, User, Mail } from "lucide-react";
 
@@ -202,10 +203,11 @@ const Checkout = () => {
                   <div className="space-y-4">
                     {state.items.map((item) => (
                       <div key={item.id} className="flex gap-3">
-                        <img
-                          src={item.image_url}
-                          alt={item.name}
+                        <Image
+                          src={item.image_url || "/placeholder.svg"}
+                          alt={`${item.name} - Order item for checkout`}
                           className="w-16 h-16 object-cover rounded-md"
+                          skeletonClassName="w-16 h-16 rounded-md"
                         />
                         <div className="flex-1">
                           <h4 className="font-medium text-foreground">{item.name}</h4>

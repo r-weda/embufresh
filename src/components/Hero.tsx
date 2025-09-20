@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Image } from "@/components/ui/image";
 import heroImage from "@/assets/hero-grocery.jpg";
 
 const Hero = () => {
@@ -45,10 +46,11 @@ const Hero = () => {
 
           {/* Hero Image */}
           <div className="order-first lg:order-last">
-            <img
+            <Image
               src={heroImage}
               alt="Fresh groceries and produce from local Embu County farmers"
               className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-lg"
+              skeletonClassName="w-full h-[300px] md:h-[400px] rounded-lg"
               loading="eager"
             />
           </div>

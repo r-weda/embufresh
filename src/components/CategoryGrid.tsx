@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
+import { Image } from "@/components/ui/image";
 import fruitsImage from "@/assets/category-fruits.jpg";
 import vegetablesImage from "@/assets/category-vegetables.jpg";
 import dairyImage from "@/assets/category-dairy.jpg";
@@ -69,11 +70,13 @@ const CategoryGrid = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {Array.from({ length: 6 }).map((_, index) => (
-              <Card key={index} className="overflow-hidden animate-pulse">
+              <Card key={index} className="overflow-hidden">
                 <CardContent className="p-4">
-                  <div className="bg-muted h-24 rounded-lg mb-3"></div>
-                  <div className="bg-muted h-4 rounded mb-2"></div>
-                  <div className="bg-muted h-3 rounded w-3/4"></div>
+                  <div className="aspect-square bg-muted rounded-lg mb-3 animate-pulse"></div>
+                  <div className="space-y-2">
+                    <div className="bg-muted h-4 rounded animate-pulse"></div>
+                    <div className="bg-muted h-3 rounded animate-pulse w-3/4"></div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -104,10 +107,11 @@ const CategoryGrid = () => {
             >
               <CardContent className="p-4">
                 <div className="aspect-square mb-3 rounded-lg overflow-hidden bg-secondary/50">
-                  <img
+                  <Image
                     src={category.image_url || categoryImages[category.slug] || "/placeholder.svg"}
                     alt={`${category.name} - Fresh ${category.name.toLowerCase()} available for delivery in Embu County`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    skeletonClassName="w-full h-full"
                     loading="lazy"
                   />
                 </div>

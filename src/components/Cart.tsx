@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Image } from "@/components/ui/image";
 import { ShoppingCart, Plus, Minus, Trash2, X } from "lucide-react";
 
 interface CartProps {
@@ -73,10 +74,11 @@ const Cart: React.FC<CartProps> = ({ trigger }) => {
                     <Card key={item.id}>
                       <CardContent className="p-4">
                         <div className="flex gap-3">
-                          <img
-                            src={item.image_url}
-                            alt={item.name}
+                          <Image
+                            src={item.image_url || "/placeholder.svg"}
+                            alt={`${item.name} - Fresh grocery item in cart`}
                             className="w-16 h-16 object-cover rounded-md"
+                            skeletonClassName="w-16 h-16 rounded-md"
                           />
                           <div className="flex-1 min-w-0">
                             <h4 className="font-medium text-foreground line-clamp-1">
