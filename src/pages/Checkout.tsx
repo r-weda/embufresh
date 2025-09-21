@@ -204,7 +204,7 @@ const Checkout = () => {
                     {state.items.map((item) => (
                       <div key={item.id} className="flex gap-3">
                         <Image
-                          src={item.image_url || "/placeholder.svg"}
+                          src={item.image_url ? `/${item.image_url}` : "/placeholder.svg"}
                           alt={`${item.name} - Order item for checkout`}
                           className="w-16 h-16 object-cover rounded-md"
                           skeletonClassName="w-16 h-16 rounded-md"

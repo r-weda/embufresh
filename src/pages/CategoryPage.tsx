@@ -160,7 +160,7 @@ const CategoryPage = () => {
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
                   <div className="relative">
                     <Image
-                      src={product.image_url || "/placeholder.svg"}
+                      src={product.image_url ? `/${product.image_url}` : "/placeholder.svg"}
                       alt={`${product.name} - Fresh ${product.name.toLowerCase()} from Embu County`}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       skeletonClassName="w-full h-48 rounded-t-lg"

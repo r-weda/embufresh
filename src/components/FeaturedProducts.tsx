@@ -128,7 +128,7 @@ const FeaturedProducts = () => {
               <CardContent className="p-0">
                 <div className="relative">
                   <Image
-                    src={product.image_url || "/placeholder.svg"}
+                    src={product.image_url ? `/${product.image_url}` : "/placeholder.svg"}
                     alt={`${product.name} - Fresh ${product.name.toLowerCase()} available for delivery in Embu County`}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     skeletonClassName="w-full h-48 rounded-t-lg"

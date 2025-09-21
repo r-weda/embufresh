@@ -75,7 +75,7 @@ const Cart: React.FC<CartProps> = ({ trigger }) => {
                       <CardContent className="p-4">
                         <div className="flex gap-3">
                           <Image
-                            src={item.image_url || "/placeholder.svg"}
+                            src={item.image_url ? `/${item.image_url}` : "/placeholder.svg"}
                             alt={`${item.name} - Fresh grocery item in cart`}
                             className="w-16 h-16 object-cover rounded-md"
                             skeletonClassName="w-16 h-16 rounded-md"
