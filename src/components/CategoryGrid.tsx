@@ -3,13 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
-import fruitsImage from "@/assets/category-fruits.jpg";
-import vegetablesImage from "@/assets/category-vegetables.jpg";
-import dairyImage from "@/assets/category-dairy.jpg";
-import cerealsImage from "@/assets/category-cereals.jpg";
-import beveragesImage from "@/assets/category-beverages.jpg";
-import householdImage from "@/assets/category-household.jpg";
-
 interface Category {
   id: string;
   name: string;
@@ -17,15 +10,6 @@ interface Category {
   description: string;
   image_url: string;
 }
-
-const categoryImages: { [key: string]: string } = {
-  fruits: fruitsImage,
-  vegetables: vegetablesImage,
-  dairy: dairyImage,
-  cereals: cerealsImage,
-  beverages: beveragesImage,
-  "household-items": householdImage,
-};
 
 const CategoryGrid = () => {
   const navigate = useNavigate();
@@ -108,7 +92,7 @@ const CategoryGrid = () => {
               <CardContent className="p-4">
                 <div className="aspect-square mb-3 rounded-lg overflow-hidden bg-secondary/50">
                   <Image
-                    src={category.image_url || "/placeholder.svg"}
+                    src={category.image_url ? `/${category.image_url}` : "/placeholder.svg"}
                     alt={`${category.name} - Fresh ${category.name.toLowerCase()} available for delivery in Embu County`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     skeletonClassName="w-full h-full"

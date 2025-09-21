@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
@@ -28,8 +28,8 @@ const Cart: React.FC<CartProps> = ({ trigger }) => {
     }
   };
 
-  const DefaultTrigger = () => (
-    <Button variant="ghost" size="icon" className="relative">
+  const DefaultTrigger = React.forwardRef<HTMLButtonElement>((props, ref) => (
+    <Button ref={ref} variant="ghost" size="icon" className="relative" {...props}>
       <ShoppingCart className="h-5 w-5" />
       {state.totalItems > 0 && (
         <Badge className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs h-5 w-5 flex items-center justify-center rounded-full">
@@ -37,7 +37,7 @@ const Cart: React.FC<CartProps> = ({ trigger }) => {
         </Badge>
       )}
     </Button>
-  );
+  ));
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
