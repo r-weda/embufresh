@@ -1,0 +1,21 @@
+-- Update product images with proper local asset paths for better loading performance
+UPDATE products SET image_url = 'apples' WHERE name ILIKE '%apple%';
+UPDATE products SET image_url = 'bananas' WHERE name ILIKE '%banana%';
+UPDATE products SET image_url = 'butter' WHERE name ILIKE '%butter%';
+UPDATE products SET image_url = 'cabbage' WHERE name ILIKE '%cabbage%';
+UPDATE products SET image_url = 'carrots' WHERE name ILIKE '%carrot%';
+UPDATE products SET image_url = 'cheese' WHERE name ILIKE '%cheese%';
+UPDATE products SET image_url = 'coca-cola' WHERE name ILIKE '%coca%' OR name ILIKE '%cola%';
+UPDATE products SET image_url = 'coffee' WHERE name ILIKE '%coffee%';
+UPDATE products SET image_url = 'cooking-oil' WHERE name ILIKE '%cooking oil%' OR name ILIKE '%oil%';
+UPDATE products SET image_url = 'eggs' WHERE name ILIKE '%egg%';
+UPDATE products SET image_url = 'milk' WHERE name ILIKE '%milk%';
+UPDATE products SET image_url = 'mangoes' WHERE name ILIKE '%mango%';
+UPDATE products SET image_url = 'onions' WHERE name ILIKE '%onion%';
+UPDATE products SET image_url = 'kale' WHERE name ILIKE '%kale%';
+UPDATE products SET image_url = 'maize-flour' WHERE name ILIKE '%maize%' OR name ILIKE '%flour%';
+UPDATE products SET image_url = 'beans' WHERE name ILIKE '%bean%';
+UPDATE products SET image_url = 'lentils' WHERE name ILIKE '%lentil%';
+UPDATE products SET image_url = 'water' WHERE name ILIKE '%water%';
+UPDATE products SET image_url = 'detergent' WHERE name ILIKE '%detergent%';
+UPDATE products SET image_url = 'soap' WHERE name ILIKE '%soap%';

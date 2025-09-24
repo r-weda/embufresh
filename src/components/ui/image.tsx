@@ -69,7 +69,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
           src={currentSrc}
           alt={alt}
           className={cn(
-            "transition-opacity duration-200",
+            "transition-opacity duration-150 will-change-auto",
             isLoading && showSkeleton ? "opacity-0" : "opacity-100",
             className
           )}
