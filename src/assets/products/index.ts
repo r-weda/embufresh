@@ -19,6 +19,9 @@ import lentils from './lentils.jpg';
 import water from './water.jpg';
 import detergent from './detergent.jpg';
 import soap from './soap.jpg';
+import oranges from './oranges.jpg';
+import tomatoes from './tomatoes.jpg';
+import spinach from './spinach.jpg';
 
 // Product image mapping for fast loading
 export const productImages = {
@@ -46,6 +49,9 @@ export const productImages = {
   'detergent-powder': detergent,
   'soap': soap,
   'laundry-soap': soap,
+  'oranges': oranges,
+  'tomatoes': tomatoes,
+  'spinach': spinach,
 } as const;
 
 // Helper function to get product image by name
