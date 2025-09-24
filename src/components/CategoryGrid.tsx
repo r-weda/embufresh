@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
+import { categoryImages } from "@/assets";
 interface Category {
   id: string;
   name: string;
@@ -92,7 +93,9 @@ const CategoryGrid = () => {
               <CardContent className="p-4">
                 <div className="aspect-square mb-3 rounded-lg overflow-hidden bg-secondary/50">
                   <Image
-                    src={category.image_url ? `/${category.image_url}` : "/placeholder.svg"}
+                    src={category.image_url && categoryImages[category.image_url as keyof typeof categoryImages] 
+                      ? categoryImages[category.image_url as keyof typeof categoryImages] 
+                      : "/placeholder.svg"}
                     alt={`${category.name} - Fresh ${category.name.toLowerCase()} available for delivery in Embu County`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     skeletonClassName="w-full h-full"
