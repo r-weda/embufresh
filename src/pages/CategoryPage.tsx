@@ -8,6 +8,7 @@ import { Image } from "@/components/ui/image";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 import { ShoppingCart, Plus, Minus, Star, Search } from "lucide-react";
+import { getProductImage } from "@/assets/products";
 
 interface Product {
   id: string;
@@ -160,7 +161,7 @@ const CategoryPage = () => {
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
                   <div className="relative">
                     <Image
-                      src={product.image_url ? `/${product.image_url}` : "/placeholder.svg"}
+                      src={getProductImage(product.name)}
                       alt={`${product.name} - Fresh ${product.name.toLowerCase()} from Embu County`}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       skeletonClassName="w-full h-48 rounded-t-lg"
